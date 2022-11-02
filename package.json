@@ -1,0 +1,23 @@
+{
+  "name": "shyflix-client",
+  "version": "1.0.0",
+  "description": "The shyFlix movie app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shaya Lieberman",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayalieb/shyFlix-client-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shayalieb/shyFlix-client-/issues"
+  },
+  "homepage": "https://github.com/shayalieb/shyFlix-client-#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
