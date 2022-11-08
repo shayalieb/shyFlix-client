@@ -1,4 +1,5 @@
 import React from "react";
+import '../../index.scss'
 
 export class MovieView extends React.Component {
 
@@ -19,7 +20,7 @@ export class MovieView extends React.Component {
                     <span className="label">Description: </span>
                     <span className="value">{movie.Description}</span>
                 </div>
-                <button onBackClick={() => { onBackClick(null); }}>Back</button>
+                <button onClick={() => { onBackClick(null); }}>Back</button>
             </div>
         );
     }
