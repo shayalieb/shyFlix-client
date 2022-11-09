@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";//For importing my data
 
+//need to import registration-view
 import { LoginView } from "../login-view/login-view";
+import { RegistrationView } from "../registeration-view/registration-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 // import { MainView } from './components/main-view/main-vie
-import '../../index.scss'
+import './main-view.scss'
 
 export class MainView extends React.Component {
 
@@ -30,7 +32,7 @@ export class MainView extends React.Component {
             });
     }
 
-    //When this function is clicked it updates the state of the selected movie, and you can select the movie
+    //When the movie is clicked, the function is invoked and updates the state to that movie
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
@@ -45,11 +47,11 @@ export class MainView extends React.Component {
     }
 
     render() {
-        const { movies, selectedMovie } = this.state;
+        const { movies, selectedMovie, user } = this.state;
         //If there is no user, the login view is redered. If there is a user logged in the user details are passed
-        if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)}/>
+        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
         //Check before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />
+        if (movies.length === 0) return <div className="main-view" />;
 
         return (
             <div className="main-view">
