@@ -17,26 +17,26 @@ export function RegistrationView(props) {
         <form>
             <h1>New User Registration</h1>
             <label>
-            Username:
-                <input type="text" value={this.state.username} onChange={e => setUsername(e.target.value)}/>
+                Username:
+                <input type="text" value={this.state.username} onChange={e => setUsername(e.target.value)} />
+            </label>
+            <label>
+                Password:
+                <input type="password" value={this.state.password} onChange={e => setPassword(e.target.value)} />
+                <label>
+                    Birthday:
+                    <input type="email" value={birthday} onChange={e => setEmail(e.target.value)} />
                 </label>
                 <label>
-                    Password:
-                    <input type="password" value={this.state.password} onChange={e => setPassword(e.target.value)}/>
-                <label>
-                Birthday:
-                    <input type="email" value={birthday} onChange={e => setEmail(e.target.value)}/>
+                    <input type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
                 </label>
-                <label>
-                <input type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)}/>
-                </label>
-                    <button type="submit" onClick={handleSubmit}>Register</button>
-                    <button type="button" onClick={() => {props.onBackClick(null)}}>Return to login</button>
-                </label>
-             
-            </form>
-        )
-    }
+                <button type="submit" onClick={handleSubmit}>Register</button>
+                <button type="button" onClick={() => { props.onBackClick(null) }}>Return to login</button>
+            </label>
+
+        </form>
+    )
+}
 
     // RegistrationView.propTypes = {
     //     onRegistration: PropType.func.isRequired
