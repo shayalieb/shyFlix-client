@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MainView from './components/main-view/main-view';
+import Container from 'react-bootstrap/Container';
+
 
 
 //Component will eventually bundle all
 class MyShyFlixApplication extends React.Component {
     render() {
         return (
-            <MainView />
-        )
+            <Container>
+                <MainView />
+                
+
+            </Container>
+
+        );
     }
 }
 

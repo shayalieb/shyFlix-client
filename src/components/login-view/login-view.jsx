@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import {
+    Form,
+    Button,
+    Container,
+    Card,
+    CardGroup,
+    Col,
+    Row
+} from "react-bootstrap";
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
@@ -8,22 +17,42 @@ export function LoginView(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(username, password);
+        props.onLoggedIn(username);
     };
 
     return (
-        <form>
-            <label>
-                Username:
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-            </label>
-            <button type="submit" onClick={handleSubmit}>Login</button>
-            <h3>Click here to unregister</h3>
-            <button type="unregister">Unregister</button>
-        </form>
-    )
+        <Container>
+            <Row>
+                <Col>
+                    <CardGroup>
+                        <Card>
+                            <Card.Title>Please login here</Card.Title>
+                            <Card.Body>
+
+                                <Form>
+                                    <Form.Group controlId="formUsername">
+                                        <Form.Label>Username:</Form.Label>
+                                        <Form.Control type="text" onChange={(e) => setUsername(e.target.value)} required placeholder="Enter Username (email)" />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="formPassword">
+                                        <Form.Label>Password:</Form.Label>
+                                        <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} minLength="8" placeholder="Enter password" />
+                                    </Form.Group>
+
+                                    <Button variety="primary" type="submit" onClick={handleSubmit}>Login</Button>
+
+                                </Form>
+                            </Card.Body>
+                        </Card>
+                    </CardGroup>
+                </Col>
+            </Row>
+        </Container>
+    );
 }
+
+LoginView.propTypes = {
+    onLoggedIn: PropTypes.func.isRequired
+};
 
