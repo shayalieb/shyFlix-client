@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import axios from 'axios';
+=======
+import axios from "axios";
+>>>>>>> Stashed changes
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -10,6 +14,8 @@ import {
     Col,
     Row
 } from "react-bootstrap";
+import './login-view.scss'
+
 
 
 export function LoginView(props) {
@@ -17,8 +23,13 @@ export function LoginView(props) {
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
+<<<<<<< Updated upstream
         e.preventDefault();
         axios.post('https://shyflixapp.herokuapp.com/login', {
+=======
+        e.preventDefault()
+        axios.post('https://shyflixapp.herokuapp.com', {
+>>>>>>> Stashed changes
             Username: username,
             Password: password
         })
@@ -27,7 +38,11 @@ export function LoginView(props) {
                 props.onLoggedIn(data);
             })
             .catch(e => {
+<<<<<<< Updated upstream
                 console.log('The user does not exist')
+=======
+                console.log('no such user')
+>>>>>>> Stashed changes
             });
     };
 
@@ -37,23 +52,25 @@ export function LoginView(props) {
                 <Col>
                     <CardGroup>
                         <Card>
-                            <Card.Title>Please login here</Card.Title>
+                            <Card.Title className="LoginView-title">Please login here</Card.Title>
                             <Card.Body>
-
+    
                                 <Form>
                                     <Form.Group controlId="formUsername">
-                                        <Form.Label>Username:</Form.Label>
-                                        <Form.Control type="text" onChange={(e) => setUsername(e.target.value)} required placeholder="Enter Username (email)" />
+                                        <Form.Label className="form-text">Username:</Form.Label>
+       
+                                        <Form.Control className="input-field" type="text" onChange={(e) => setUsername(e.target.value)} required placeholder="Enter Username (email)" />
                                     </Form.Group>
-
+        
                                     <Form.Group controlId="formPassword">
-                                        <Form.Label>Password:</Form.Label>
-                                        <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} minLength="8" placeholder="Enter password" />
+                                        <Form.Label className="form-text">Password:</Form.Label>
+
+                                        <Form.Control className="input-field" type="password" onChange={(e) => setPassword(e.target.value)} minLength="8" placeholder="Enter password" />
                                     </Form.Group>
-
+                                    <br></br>
                                     <Button variety="primary" type="submit" onClick={handleSubmit}>Login</Button>
-
                                 </Form>
+                                <br></br>
                             </Card.Body>
                         </Card>
                     </CardGroup>

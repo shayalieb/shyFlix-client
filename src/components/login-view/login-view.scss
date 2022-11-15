@@ -1,6 +1,46 @@
+//Text and background
 $rootColor: #a0dec3;
 $textColor: #04291e;
 $textLight: #065e44;
-$button-1: #3b826a;
-$button-2: #215946;
 $whiteText: #f0f5f3;
+//Buttons
+
+
+
+.LoginView-title {
+    font-size: 38px;
+    font-weight: 500;
+    color: $textLight;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.form-text {
+    font-size: 24;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: $textColor;
+}
+
+button {
+    background-color: #065e44;
+    color: #f0f5f3;
+    padding: 16px 35px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.input-field {
+    width: 15%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    border: none;
+
+}

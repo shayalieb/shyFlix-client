@@ -6,7 +6,8 @@ $button-2: #215946;
 $whiteText: #f0f5f3;
 
 
-.main-view {
+.app-container {
     background-color: $rootColor;
-    color: $textColor;
+    text-align: center;
+    display: flexbox;
 }
