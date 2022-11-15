@@ -11,6 +11,7 @@ import {
     FormGroup,
     Form
 } from 'react-bootstrap';
+import axios from "axios";
 
 
 export function RegistrationView(props) {
@@ -19,8 +20,32 @@ export function RegistrationView(props) {
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
 
+    const validate = () => {
+        let isReq = true;
+        if(!username){
+            setUsernameErr('Username is required');
+            isReq = false;
+        } else if(username.length < 2) {
+            setUsernameErr('Username must be at least 2 characters long');
+            isReq = false;
+        }
+        if(!passwor) {
+            setPasswordErr('Password is required');
+            isReq = false;
+        } else if (password.length < 8) {
+            setPassword('Password must be at least 8 characters long');
+            isReq = false;
+        }
+
+        return isReq;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const isReq = vlaidate();
+        if(isReq) {
+            axios.post('')
+        }
         cconsole.log(username, password, email, birthday);
         props.Registration(username);
     };

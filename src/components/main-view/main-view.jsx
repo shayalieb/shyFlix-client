@@ -41,7 +41,7 @@ export class MainView extends React.Component {
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
-        })
+        });
     }
 
     //Logs in the user and updates the state to the particular user
