@@ -11,7 +11,7 @@ class MyShyFlixApplication extends React.Component {
         return (
             <Container>
                 <MainView />
-                
+
 
             </Container>
 
