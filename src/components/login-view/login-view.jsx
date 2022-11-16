@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -10,6 +9,7 @@ import {
     Col,
     Row
 } from "react-bootstrap";
+import axios from 'axios';
 import './login-view.scss'
 
 

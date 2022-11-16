@@ -73,7 +73,7 @@ export function RegistrationView(props) {
                     const data = response.data;
                     console.log(data);
                     alert('You are now signed up, please login to continue!');
-                    window.open('/', '_self')
+                    window.open('/', '_self');
                 })
                 .catch(response => {
                     console.error(response);
