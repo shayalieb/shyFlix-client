@@ -13,8 +13,10 @@ import {
 } from 'react-bootstrap';
 import axios from "axios";
 
+import './registration-view.scss'
 
-export function RegistrationView(props) {
+
+export function RegistrationView(props)  {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -26,6 +28,7 @@ export function RegistrationView(props) {
         passwordErr: '',
         emailErr: ''
     })
+    // const { user, onBackClick } = props;    
 
     const validate = () => {
         let isReq = true;

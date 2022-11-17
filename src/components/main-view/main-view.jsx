@@ -1,6 +1,7 @@
 import React from "react";
-import axios from 'axios'
-
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Row, Col } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { RegistrationView } from '../registeration-view/registration-view';
@@ -9,8 +10,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-
-import { Row, Col } from 'react-bootstrap'
+import { ProfileView } from "../profile-view/profile-view";
 
 export class MainView extends React.Component {
     //Initial state is set to null as there is not user logged in yet
@@ -113,5 +113,25 @@ export class MainView extends React.Component {
             </Router>
         );
     }
-
 }
+
+ProfileView.propTypes = {
+    user: PropTypes.string.isRequired,
+    movies: PropTypes.array.isRequired,
+    favoriteMovies: PropTypes.array.isRequired
+};
+
+let mapStateToProps = (state) => {
+    return {
+        movies: state.movies,
+        user: state.user,
+        favoriteMovies: state.favoriteMovies
+    };
+};
+
+export default connct(mapStateToProps, {
+    // setMovies,
+    // setUser,
+    // setFavorites,
+    // removeFavorites
+})(MainView)
