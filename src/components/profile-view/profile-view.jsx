@@ -1,185 +1,237 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Container, Form, Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
+import PropTypes from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './profile-view.scss';
-import { propTypes } from 'react-bootstrap/esm/Image';
+import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 
-export function ProfileView(props) {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [birthday, setBirthday] = useState('');
-    //Hooks for the inputs
-    const [usernameErr, setUsernameErr] = useState('');
-    const [passwordErr, setPasswordErr] = useState('');
-    const [birthdayErr, setBirthdayErr] = useState('');
-    const [emailErr, setEmailErr] = useState('');
-    const { user, favoriteMovies, removeFavorite, onBackClick } = props;
+import './profile-view.scs';
 
-    //Validate the user inputs
-    const validate = () => {
-        let isReq = true;
-        if (!username) {
-            setUsernameErr('Username is required to login');
-            isReq = false;
-        } else if (username.length < 8) {
-            setUsernameErr('Username must be at least 8 characters long');
-            isReq = false;
-        }
-        if (!password) {
-            setPasswordErr('Password is required');
-            isReq = false;
-        } else if (password.length < 8) {
-            setUsernameErr('Password needs to be at least 8 characters long')
-            isReq = false;
-        }
-        if (!email) {
-            setBirthdayErr('A valid email address is required');
-            isReq = false;
-        } else if (email.indexOf('@') === -1) {
-            setEmailErr('Avalid email address is required')
-            isReq = false;
-        }
-        return isReq;
-    };
+export class ProfileView extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            Username: null,
+            Password: null,
+            Email: null,
+            Birthday: null,
+            FavoriteMovies: [],
+        };
+    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const isReq = validate();
+    componentDidMount() {
+        const accessToken = localStorage.getItem('user');
+        this.getUser(accessToken);
+    }
+
+    onRemoveFavorite = (movie) => {
+        const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        if (isReq && token !== null && user !== null) {
-            axios.put(`https://shyflixapp.herokuapp.com/users/${user}`, {
-                Username: username,
-                Password: password,
-                Email: email,
-                Birthday: birthday
-            },
-                {
-                    headers: {
-                        Authorization: `Bearer${token}`,
-                    }
-                }
-            )
-                .them((res) => {
-                    const data = authData;
-                    updateUser(data.Username);
-                    localStorage.setItem('user', data.Username);
-                    alert('Update was successfull!');
-                })
-                .catch((e) => {
-                    console.error(e);
-                    alert('Not able to update');
-                });
-        }
-    };
-    const handleDelete = (e) => {
-        e.preventDefault();
-        const token = localStorage.getItem('token');
-        if (confirm('Are you sure you wanto delete your account?')) {
-            axios.delete(`https://shyflixapp.herokuapp.com/users/${user}`, {
-                headers: { Authorization: `Bearer ${token}` },
+        console.log(movie)
+        axios.delete(`https://shyflixapp.herokuapp.com/users/${username}/movies/${movie}`,
+            { headers: { Authorization: `Bearer ${token}` } }
+        )
+            .then((response) => {
+                console.log(response);
+                alert('The movie has been removed from favorites!');
+                this.componentDidMount
             })
-                .them((res) => {
-                    alter(`You account has been removoved. We are sorry to see you go!`);
-                    localStorage.clear();
-                    deleteUser({});
-                    window.open('/', '_self');
-                })
-                .catch((e) => console.log(e));
-        }
+            .catch(function (error) {
+                console.log(error);
+            });
     };
-    return (
-        <Container className='profile-container'>
-            <Card bg='dark' text='light' className='profile-card'>
-                <Card.Header className='text-center' as='h5'>
-                    Profile
-                </Card.Header>
-                <Card.Body>
-                    <CardGroup>
-                        <Card bg='dark' border='dark' text='light'>
-                            <span className='lebel text-center headline-profile-update'>Update your profile</span>
-                            <Form>
-                                <Form.Group className='profile-formg-group-username' controlId='formGroupUsername'>
+
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.state({
+            user: null
+        });
+        window.open('/', '_self');
+    }
+
+    getUser = (token) => {
+        const Username = localStorage.getItem('user');
+        axios.get(`https://shyflixapp.herokuapp.com/users/${Username}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        })
+            .then((response) => {
+                this.setState({
+                    Username: response.data.Username,
+                    Password: response.data.Password,
+                    Email: response.data.Email,
+                    Birthday: response.data.Birthday,
+                    FavoriteMovies: response.data.FavoriteMovies,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    //Edit a user profile
+    editUser = (e) => {
+        e.preventDefault();
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        axios.put(`https://shyflixapp.herokuapp.com/users/${Username}`,
+            {
+                Username: this.state.Username,
+                Password: this.state.Password,
+                Email: this.state.Email,
+                Birthday: this.state.Birthday,
+            },
+            { headers: { Authorization: `Bearer ${token}` }, }
+        )
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    Username: response.data.Username,
+                    Password: response.data.Password,
+                    Email: response.data.Email,
+                    Birthday: response.data.Birthday,
+                });
+                localStorage.setItem('user', this.state.Username);
+                const data = response.data;
+                console.log(data)
+                console.log(this.state.Username);
+                alert('Your profile has been updated');
+                window.open(`/users/${Username}`, '_self');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    //Delete you account
+    onDeleteUser() {
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        axios.delete(`https://shyflixapp.herokuapp.com/users/${Username}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        })
+            .then((response) => {
+                console.log(response);
+                alert('Your account has been deleted');
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                window.open(`/`, '_self');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    //Setting the user values
+    setUsername(value) {
+        this.setState({
+            Username: value,
+        });
+    }
+
+    setPassword(value) {
+        this.setState({
+            Password: value,
+        });
+    }
+
+    setEmail(value) {
+        this.setState({
+            Email: value,
+        })
+    }
+
+    setBirthday(value) {
+        this.setState({
+            Birthday: value,
+        })
+    }
+
+    render() {
+        const { movies, user } = this.props;
+        const { FavoriteMovies, Email, Birth } = this.state;
+        const favoriteMovies = FavoriteMovies.map((movieId) =>
+            movies.find((movie) => movie._id === movieId)
+        );
+
+        return (
+            <Container>
+                <Row>
+                    <Col lg={5} className='mb-4'>
+                        <h4>Your Account</h4>
+                        <Card>
+                            <Card.Body>
+                                <Card.Text>Username:</Card.Text>
+                                <Card.Text>Email</Card.Text>
+                                <Card.Text>Birthday:{moment(Birthday).format('MM/DD/YYYY')}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col lg={7} className='mb-5'>
+                        <h4>Update your profile details</h4>
+                        <Card>
+                            <Form className='p-4'>
+                                <Form.Group className='mb=3' controlId='formUsername'>
                                     <Form.Label>Username:</Form.Label>
-                                    <Form.Control type='text' value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Enter your username here' />
-                                    {usernameErr && <p>{usernameErr}</p>}
+                                    <Form.Control
+                                        type='text'
+                                        name='Username'
+                                        placeholder={this.state.Username}
+                                        onChange={(e) => this.setUsername(e.target.value)}
+                                        required
+                                    />
                                 </Form.Group>
-                                <Form.Group className='profile-form-group-password' controlId='formGroupPassword'>
+                                <Form.Group className='mb-4' controlId='formPassword'>
                                     <Form.Label>Password:</Form.Label>
-                                    <Form.Control type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter password her (min 8 chatacters)' minLength='8' required />
-                                    {passwordErr && <p>{passwordErr}</p>}
+                                    <Form.Control
+                                        type='password'
+                                        name='Password'
+                                        placeholder='Enter new password'
+                                        onChange={(e) => this.setPassword(e.target.value)}
+                                    />
                                 </Form.Group>
-                                <Form.Group className='profile-form-group-email' controlId='formGroupEmail'>
-                                    <Form.Control type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter email address here' required />
-                                    {emailErr && <p>{emailErr}</p>}
+                                <Form.Group className='mb-4' controlId='formEmail'>
+                                    <Form.Label>Email:</Form.Label>
+                                    <Form.Control
+                                        type='email'
+                                        name='Email'
+                                        placeholder={this.staet.Email}
+                                        onChange={(e) => this.setEmail(e.target.value)}
+                                        required
+                                    />
                                 </Form.Group>
-                                <Form.Group className='profile-form-group-birthday' controlId='formGroupBirthday'>
-                                    <Form.Control type='date' value={birthday} onChange={(e) => (e.target.value)} placeholder='MM/DD/YYYY' />
-                                    {birthdayErr && <p>{birthdayErr}</p>}
+                                <Form.Group className='mb-4' controlId='formBirth'>
+                                    <Form.Label>Birthday:</Form.Label>
+                                    <Form.Control 
+                                        type='date'
+                                        name='Birthday'
+                                        placeholder={this.state.Birthday}
+                                        onChange={(e) => this.setBirthday(e.target.value)}
+                                    />
                                 </Form.Group>
-
-                                <Button className='button-profile-view-update' variant='secondary' type='submit' onClick={handleUpdate}>
-                                    Update
-                                </Button>
-                            </Form>
-                            <span className='label healiine-profile-mini-cards'>My favorite movies</span>
-                        </Card>
-                        <Card bg='dark' border='dark' text='light'>
-                            <span className='lebel text-center headline-profile-delete'>Delete Account</span>
-                            <Col>
-                                <Button className='button button-profile-view-delete' variant='danger' type='submit' onClick={handleDelete}>
-                                    DELETE MY ACCOUNT PERMANENTLY!!!
-                                </Button>
-                            </Col>
-                        </Card>
-                    </CardGroup>
-                    <CardGroup className='card-group-profile-mini-cards'>
-                        {favoriteMovies.map((e) => (
-                            <Col md={6} lg={3} key={m._id} className='profile-movie-card-mini'>
-                                <Card className='h-100' bg='dark' text='light'>
-                                    <Link to={`/movies/$ {m._id}`} className='profile-movie-card-link'>
-                                        <Card.Img variant='top' crossOrigin='anonymous | uer credentials' src={m.imagepath} />
-                                        <Card.Body>
-                                            <Card.Title>{m.Title}</Card.Title>
-                                        </Card.Body>
-                                    </Link>
-
-                                    <Button className='button-profile-view-remove-favorites' variant='outline-danger' size='sm' type='button' onClick={() => removeFavorite(m._id)}>
-                                        Remove movie
+                                <div className='d-flex justify-content-between'>
+                                    <Button variaty='primary' type='submit' onClick={updateUser}>
+                                        Update Profile
+                                    </Button>{' '}
+                                    <Button variant='outline-danger' type='submit' onClick={this.onDeleteUser}>
+                                        Delete Account
                                     </Button>
-                                </Card>
-                            </Col>
-                        ))}
-                    </CardGroup>
-                </Card.Body>
-                <Card.Footer className='text-right'>
-                    <Button className='button-profile-view-back' variant='secondary' onClick={() => {
-                        onBackClick();
-                    }}>
-                        Back
-                    </Button>
-                </Card.Footer>
-            </Card>
-        </Container>
-    );
+                                </div>
+                            </Form>
+                        </Card>
+                    </Col>
+                </Row>
+                <>
+                <Row>
+                    {favoriteMovies.map((movie) => (
+                        <Col lg={3} md={6} key={movie._id}>
+                            
+                        </Col>
+                    ))}
+                </Row>
+                </>
+            </Container>
+        )
+    }
+
 }
 
-ProfileView.propTypes = {
-    user: PropTypes.string.isRequired,
-    favoriteMovies: PropTypes.array.isRequired,
-    removeFavorite: propTypes.func.isRequired,
-    onBackClick: PropTypes.func.isRequired
-};
-
-const mapStateToProps = (state) => {
-    return {
-        user: state.uer
-    };
-};
-
-export default connect(mapStateToProps, {
-    deleteUser,
-    updateUser
-})(ProfileView);

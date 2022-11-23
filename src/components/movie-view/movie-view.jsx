@@ -4,8 +4,6 @@ import '../../index.scss';
 
 export class MovieView extends React.Component {
 
-
-
     render() {
         const { movie, onBackClick } = this.props;
         return (

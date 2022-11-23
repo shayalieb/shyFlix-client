@@ -1,3 +1,9 @@
+.app-container {
+  text-align: center;
+  display: flexbox;
+  background-color: #a0dec3;
+}
+
 .shyFilxApp {
   color: #04291e;
   background-color: #a0dec3;
@@ -16,4 +22,4 @@
   background-color: #a0dec3;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */
