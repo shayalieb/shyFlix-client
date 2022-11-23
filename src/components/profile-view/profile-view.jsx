@@ -201,7 +201,7 @@ export class ProfileView extends React.Component {
                                 </Form.Group>
                                 <Form.Group className='mb-4' controlId='formBirth'>
                                     <Form.Label>Birthday:</Form.Label>
-                                    <Form.Control 
+                                    <Form.Control
                                         type='date'
                                         name='Birthday'
                                         placeholder={this.state.Birthday}
@@ -221,17 +221,21 @@ export class ProfileView extends React.Component {
                     </Col>
                 </Row>
                 <>
-                <Row>
-                    {favoriteMovies.map((movie) => (
-                        <Col lg={3} md={6} key={movie._id}>
-                            
-                        </Col>
-                    ))}
-                </Row>
+                    <Row>
+                        {favoriteMovies.map((movie) => (
+                            <Col lg={3} md={6} key={movie._id}>
+                                <Link to={`/movies/${movie._id}`} />
+                                <Button variant='secondary' onClick={() => {
+                                    this.onRemoveFavorite(movie._id);
+                                }}>
+
+                                </Button>
+                            </Col>
+                        ))}
+                    </Row>
                 </>
             </Container>
         )
     }
-
 }
 
