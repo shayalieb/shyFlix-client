@@ -1,47 +1,31 @@
 import React from 'react';
-import { Button, Container, Col, Row } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
-
-import './genre-view.scss';
+import PropTypes from 'prop-types';
+import { Button, Col, Row, Container } from 'react-bootstrap';
 
 export class GenreView extends React.Component {
     render() {
-        const { genre, onBackClick, genreMovies } = this.props;
-
+        const { Genre, onBackClick } = this.props;
         return (
-            <div>
-                <Container className='genre-view'>
-                    <Row>
-                        <Col className='value'>
-                            <h1>{genre.Genre.Name}</h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <p className='value'>{genre.Genre.Description}</p>
-                    </Row>
-                    <Row>
-                        <Col className='label'>
-                            <h3>Other {genre.Genre.Name}</h3>
-                        </Col>
-                    </Row>
-                    <Row>
-                        {genreMovies.map((movie) => (
-                            <Col lg={4} md={6}>
-                                <MovieCard key={movie._id} movie={movie}>
-                                    {movie.Title}
-                                </MovieCard>
-                            </Col>
-                        ))}
-                    </Row>
+            <Container className='genre-view'>
+                <Row>
+                    <Col className='label'>Genre</Col>
+                    <Col className='value'>{Genre.Name}</Col>
+                </Row>
 
-                    <Button className='mt-4' onClick={() => {
-                        onBackClick();
-                    }}>
-                        Back
-                    </Button>
-                </Container>
-            </div>
+                <Row>
+                    <Col className='label'>Description</Col>
+                    <Col className='value'>{Genre.Description}</Col>
+                </Row>
 
-        );
+                <Button onClick={() => { onBackClick(null); }} variant='primary'>Back</Button>
+            </Container>
+        )
     }
+}
+
+GenreView.PropTypes = {
+    Genre: PropTypes.shape({
+        Name: PropTypes.string,
+        Description: PropTypes.string,
+    }).isRequired,
 }

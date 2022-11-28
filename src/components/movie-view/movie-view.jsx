@@ -1,49 +1,82 @@
-import React from "react";
-import { Button } from "react-bootstrap";
-import '../../index.scss';
+import React from 'react';
+import propTypes from 'prop-types';
+import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class MovieView extends React.Component {
-
     render() {
         const { movie, onBackClick } = this.props;
         return (
-            <div className='movie-view'>
-                <div className='movie-poster'>
-                    <img src={movie.imagepath} />
-                </div>
+            <Container fluid className='movie-container'>
+                <Row>
+                    <Col>
+                        <div className='movie-image'>
+                            <img src={movie.imagepath} />
+                        </div>
+                    </Col>
+                </Row>
 
-                <div className='movie-title'>
-                    <span className='label'>Movie Title</span>
-                    <span className='value'>{movie.Title}</span>
-                </div>
+                <Row>
+                    <Col>
+                        <div className='movie-title'>
+                            <span className='label'>Title:</span>
+                            <span className='value'>{movie.Title}</span>
+                        </div>
+                    </Col>
+                </Row>
 
-                <div className='movie-description'>
-                    <span className='label'>Description</span>
-                    <span className='value'>{movie.Description}</span>
-                </div>
+                <Row>
+                    <Col>
+                        <div className='movie-genre'>
+                            <span className='label'>Genre:</span>
+                            <span className='value'>{movie.Genre.Name}</span>
+                            <Link to={`/genre/${movie.genre.name}`}>
+                                <Button variant='link'>Genre</Button>
+                            </Link>
+                        </div>
+                    </Col>
+                </Row>
 
-                <div className='movie-genre'>
-                    <span className='label'>Genre</span>
-                    <span className='value'>{movie.Genre.Name}</span>
-                    <Link to={`/genres/${movie.Genre.Name}`}>
-                        <Button vaiant='link'>Genre</Button>
-                    </Link>
-                </div>
+                <Row>
+                    <Col>
+                        <div className='movie-director'>
+                            <span className='label'>Director:</span>
+                            <span className='value'>{movie.Director.Name}</span>
+                            <Link to={`/director/${movie.Director.Name}`}>
+                                <Button variant='link'>Director</Button>
+                            </Link>
+                        </div>
+                    </Col>
+                </Row>
 
-                <div className='movie-director'>
-                    <span className='label'>Director</span>
-                    <span className='value'>{movie.Director.Name}</span>
-                    <Link to={`/directors/${movie.Director.Name}`}>
-                        <Button vaiant='link'>Director</Button>
-                    </Link>
-                </div>
+                <Row>
+                    <Col>
+                        <Button onClick={() => {
+                            onBackClick(null);
+                        }}>
+                            Back
+                        </Button>
+                    </Col>
+                </Row>
 
-                <Button onClick={() => { onBackClick(null); }}>Back</Button>
-
-            </div>
-
+            </Container>
         );
     }
 }
 
-
+MovieView.propTypes = {
+    movie: propTypes.shape({
+        Title: propTypes.string.isRequired,
+        Description: propTypes.string.isRequired,
+        Genre: propTypes.shape({
+            Name: propTypes.string.isRequired,
+            Description: propTypes.string.isRequired,
+        }),
+        director: propTypes.shape({
+            Name: propTypes.string.isRequired,
+            Bio: propTypes.string,
+            Birth: propTypes.string,
+        })
+    }).isRequired,
+    onBackClick: propTypes.func.isRequired,
+};

@@ -1,241 +1,84 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
-import PropTypes from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { Button, Col, Row, Container } from 'react-bootstrap';
+import { FavoriteMovie } from './favorite-movie';
+import UpdateUser from './updated-user';
+import { useState } from 'ract';
+import { useEffect } from 'react';
 
-import './profile-view.scs';
+export function ProfileView(props) {
+    const [user, setUser] = useState(props.user);
+    const [movies, setMovies] = useState(props.movies);
+    const [FavoriteMovies, setFavoriteMovies] = useState(props.FavoriteMovies);
+    const currentUser = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
 
-export class ProfileView extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            Username: null,
-            Password: null,
-            Email: null,
-            Birthday: null,
-            FavoriteMovies: [],
-        };
-    }
-
-    componentDidMount() {
-        const accessToken = localStorage.getItem('user');
-        this.getUser(accessToken);
-    }
-
-    onRemoveFavorite = (movie) => {
-        const username = localStorage.getItem('user');
-        const token = localStorage.getItem('token');
-        console.log(movie)
-        axios.delete(`https://shyflixapp.herokuapp.com/users/${username}/movies/${movie}`,
-            { headers: { Authorization: `Bearer ${token}` } }
-        )
-            .then((response) => {
-                console.log(response);
-                alert('The movie has been removed from favorites!');
-                this.componentDidMount
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
-
-    onLoggedOut() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        this.state({
-            user: null
-        });
-        window.open('/', '_self');
-    }
-
-    getUser = (token) => {
-        const Username = localStorage.getItem('user');
-        axios.get(`https://shyflixapp.herokuapp.com/users/${Username}`, {
+    const getUser = () => {
+        axios.get(`https://shyflixapp.herokuapp.com/users/${currentUser}`, {
             headers: { Authorization: `Bearer ${token}` },
         })
-            .then((response) => {
-                this.setState({
-                    Username: response.data.Username,
-                    Password: response.data.Password,
-                    Email: response.data.Email,
-                    Birthday: response.data.Birthday,
-                    FavoriteMovies: response.data.FavoriteMovies,
-                });
+            .then(response => {
+                setUser(response.data);
+                setFavoriteMovies(response.data.FavoriteMovis)
             })
             .catch(function (error) {
-                console.log(error);
-            });
-    };
-
-    //Edit a user profile
-    editUser = (e) => {
-        e.preventDefault();
-        const Username = localStorage.getItem('user');
-        const token = localStorage.getItem('token');
-        axios.put(`https://shyflixapp.herokuapp.com/users/${Username}`,
-            {
-                Username: this.state.Username,
-                Password: this.state.Password,
-                Email: this.state.Email,
-                Birthday: this.state.Birthday,
-            },
-            { headers: { Authorization: `Bearer ${token}` }, }
-        )
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    Username: response.data.Username,
-                    Password: response.data.Password,
-                    Email: response.data.Email,
-                    Birthday: response.data.Birthday,
-                });
-                localStorage.setItem('user', this.state.Username);
-                const data = response.data;
-                console.log(data)
-                console.log(this.state.Username);
-                alert('Your profile has been updated');
-                window.open(`/users/${Username}`, '_self');
+                console.log('Falied to retrieve you data', error);
             })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
+    }
 
-    //Delete you account
-    onDeleteUser() {
-        const Username = localStorage.getItem('user');
-        const token = localStorage.getItem('token');
-        axios.delete(`https://shyflixapp.herokuapp.com/users/${Username}`, {
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const handleDelete = () => {
+        axios.delete(`https://shyflixapp.herokuapp.com/users/${currentUser}`, {
             headers: { Authorization: `Bearer ${token}` },
         })
-            .then((response) => {
-                console.log(response);
-                alert('Your account has been deleted');
-                localStorage.removeItem('user');
-                localStorage.removeItem('token');
-                window.open(`/`, '_self');
+            .then(() => {
+                alert(`${user.name}'s account has been deleted.`)
+                localStorage.clear();
+                window.open('/register', '_self');
             })
-            .catch(function (error) {
-                console.log(error);
-            });
+            .catch((err) => console.log(err));
     };
 
-    //Setting the user values
-    setUsername(value) {
-        this.setState({
-            Username: value,
-        });
-    }
+    return (
+        <Container>
+            <Row><h3>Your account details</h3></Row>
+            <Row>
+                <Col className='label'>Username</Col>
+                <Col className='value'>{user.username}</Col>
+            </Row>
 
-    setPassword(value) {
-        this.setState({
-            Password: value,
-        });
-    }
+            <Row>
+                <Col className='label'>Password</Col>
+                <Col className='Value'>{user.password}</Col>
+            </Row>
 
-    setEmail(value) {
-        this.setState({
-            Email: value,
-        })
-    }
+            <Row>
+                <Col className='label'>Email</Col>
+                <Col className='vlaue'>{user.email}</Col>
+            </Row>
 
-    setBirthday(value) {
-        this.setState({
-            Birthday: value,
-        })
-    }
+            <Row>
+                <Col className='label'>Birthday</Col>
+                <Col className='value'>{user.birthday}</Col>
+            </Row>
 
-    render() {
-        const { movies, user } = this.props;
-        const { FavoriteMovies, Email, Birth } = this.state;
-        const favoriteMovies = FavoriteMovies.map((movieId) =>
-            movies.find((movie) => movie._id === movieId)
-        );
+            <Row className='mt-5'><h2>Favorite Movies</h2></Row>
 
-        return (
-            <Container>
-                <Row>
-                    <Col lg={5} className='mb-4'>
-                        <h4>Your Account</h4>
-                        <Card>
-                            <Card.Body>
-                                <Card.Text>Username:</Card.Text>
-                                <Card.Text>Email</Card.Text>
-                                <Card.Text>Birthday:{moment(Birthday).format('MM/DD/YYYY')}</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col lg={7} className='mb-5'>
-                        <h4>Update your profile details</h4>
-                        <Card>
-                            <Form className='p-4'>
-                                <Form.Group className='mb=3' controlId='formUsername'>
-                                    <Form.Label>Username:</Form.Label>
-                                    <Form.Control
-                                        type='text'
-                                        name='Username'
-                                        placeholder={this.state.Username}
-                                        onChange={(e) => this.setUsername(e.target.value)}
-                                        required
-                                    />
-                                </Form.Group>
-                                <Form.Group className='mb-4' controlId='formPassword'>
-                                    <Form.Label>Password:</Form.Label>
-                                    <Form.Control
-                                        type='password'
-                                        name='Password'
-                                        placeholder='Enter new password'
-                                        onChange={(e) => this.setPassword(e.target.value)}
-                                    />
-                                </Form.Group>
-                                <Form.Group className='mb-4' controlId='formEmail'>
-                                    <Form.Label>Email:</Form.Label>
-                                    <Form.Control
-                                        type='email'
-                                        name='Email'
-                                        placeholder={this.staet.Email}
-                                        onChange={(e) => this.setEmail(e.target.value)}
-                                        required
-                                    />
-                                </Form.Group>
-                                <Form.Group className='mb-4' controlId='formBirth'>
-                                    <Form.Label>Birthday:</Form.Label>
-                                    <Form.Control
-                                        type='date'
-                                        name='Birthday'
-                                        placeholder={this.state.Birthday}
-                                        onChange={(e) => this.setBirthday(e.target.value)}
-                                    />
-                                </Form.Group>
-                                <div className='d-flex justify-content-between'>
-                                    <Button variaty='primary' type='submit' onClick={updateUser}>
-                                        Update Profile
-                                    </Button>{' '}
-                                    <Button variant='outline-danger' type='submit' onClick={this.onDeleteUser}>
-                                        Delete Account
-                                    </Button>
-                                </div>
-                            </Form>
-                        </Card>
-                    </Col>
-                </Row>
-                <>
-                    <Row>
-                        {favoriteMovies.map((movie) => (
-                            <Col lg={3} md={6} key={movie._id}>
-                                <Link to={`/movies/${movie._id}`} />
-                                <Button variant='secondary' onClick={() => {
-                                    this.onRemoveFavorite(movie._id);
-                                }}>
+            <Row className='mt-3'>
+                <FavoriteMovie
+                    movies={movies}
+                    FavoriteMovies={FavoriteMovie}
+                    currentUser={currentUser}
+                    token={token} />
+            </Row>
 
-                                </Button>
-                            </Col>
-                        ))}
-                    </Row>
-                </>
-            </Container>
-        )
-    }
-}
+            <UpdateUser user={user} />
 
+            <Button className='d-block mt-5' variant='danger' onClick={handleDelete}>Delete Account</Button>
+        </Container>
+    )
+};

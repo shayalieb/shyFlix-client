@@ -4,10 +4,41 @@
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.app-container {
+.LoginView-title {
+  color: #065e44;
+  font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+.form-text {
+  color: #04291e;
+  font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif;
+  font-size: 24px;
+}
+
+button {
+  color: #f0f5f3;
   text-align: center;
-  display: flexbox;
-  background-color: #a0dec3;
+  transition: .3;
+  cursor: pointer;
+  background-color: #065e44;
+  border: none;
+  border-radius: 5px;
+  padding: 16px 35px;
+  font-family: Times New Roman, Times, serif;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 4px #0006;
+}
+
+.input-field {
+  width: 15%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 4px #0006;
 }
 
 .app-container {

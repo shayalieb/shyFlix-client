@@ -35,6 +35,12 @@ button {
   box-shadow: 0 4px 4px #0006;
 }
 
+.app-container {
+  text-align: center;
+  display: flexbox;
+  background-color: #a0dec3;
+}
+
 .shyFilxApp {
   color: #04291e;
   background-color: #a0dec3;
