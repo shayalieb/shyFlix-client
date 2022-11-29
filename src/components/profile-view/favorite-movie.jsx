@@ -32,11 +32,11 @@ export function FavoriteMovie(props) {
                         <Col xs={10} sm={8} md={6} lg={4}>
                             <Card id='movie-card'>
                                 <Link to={`movies/${movie_id}`}>
-                                    <Card.Img variant='top' src={movie.imgpath} />
+                                    <Card.Img variant='top' src={movie.imagepath} />
                                 </Link>
                                 <Card.Body>
                                     <Card.Title>{movie.Title}</Card.Title>
-                                    <Card.Text>{movie.Desription}</Card.Text>
+                                    <Card.Text>{movie.Description}</Card.Text>
                                     <Link to={`/movies/${movie._id}`}>
                                         <Button
                                             className="button"

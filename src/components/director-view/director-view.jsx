@@ -6,7 +6,7 @@ import { Button, Col, Row, Container } from 'react-bootstrap';
 export class DirectorView extends React.Component {
     render() {
         const { Director, onBackClick } = this.props;
-        axios.get('https://shyflixapp.herokuapp.com/movies/Director/:id')
+        axios.get('https://shyflixapp.herokuapp.com/movies/Director/:movieId')
         return (
             <Container className='Director=view'>
                 <Row>
