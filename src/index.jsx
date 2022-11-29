@@ -26,4 +26,3 @@ const container = document.getElementsByClassName('app-container')[0];
 
 //Telling react to render the app in the DOM
 ReactDOM.render(React.createElement(MyShyFlixApplication), container);
-

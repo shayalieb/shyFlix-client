@@ -1,9 +1,3 @@
-.shyFilxApp {
-  color: #04291e;
-  background-color: #a0dec3;
-  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .app-container {
   text-align: center;
   display: flexbox;
@@ -47,4 +41,10 @@ button {
   box-shadow: 0 4px 4px #0006;
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+.shyFilxApp {
+  color: #04291e;
+  background-color: #a0dec3;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*# sourceMappingURL=index.3bb28fe2.css.map */

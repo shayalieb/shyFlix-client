@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button, Col, Row, Container } from 'react-bootstrap';
 import { FavoriteMovie } from './favorite-movie';
 import UpdateUser from './updated-user';
-import { useState } from 'ract';
+import { useState } from 'react';
 import { useEffect } from 'react';
 
 export function ProfileView(props) {
@@ -20,10 +20,10 @@ export function ProfileView(props) {
         })
             .then(response => {
                 setUser(response.data);
-                setFavoriteMovies(response.data.FavoriteMovis)
+                setFavoriteMovies(response.data.FavoriteMovies)
             })
             .catch(function (error) {
-                console.log('Falied to retrieve you data', error);
+                console.log('Failed to retrieve you data', error);
             })
     }
 
@@ -58,7 +58,7 @@ export function ProfileView(props) {
 
             <Row>
                 <Col className='label'>Email</Col>
-                <Col className='vlaue'>{user.email}</Col>
+                <Col className='value'>{user.email}</Col>
             </Row>
 
             <Row>

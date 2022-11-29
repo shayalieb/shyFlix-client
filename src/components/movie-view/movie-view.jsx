@@ -42,7 +42,7 @@ export class MovieView extends React.Component {
                         <div className='movie-director'>
                             <span className='label'>Director:</span>
                             <span className='value'>{movie.Director.Name}</span>
-                            <Link to={`/director/${movie.Director.Name}`}>
+                            <Link to={`/Director/${movie.Director.Name}`}>
                                 <Button variant='link'>Director</Button>
                             </Link>
                         </div>
@@ -72,7 +72,7 @@ MovieView.propTypes = {
             Name: propTypes.string.isRequired,
             Description: propTypes.string.isRequired,
         }),
-        director: propTypes.shape({
+        Director: propTypes.shape({
             Name: propTypes.string.isRequired,
             Bio: propTypes.string,
             Birth: propTypes.string,

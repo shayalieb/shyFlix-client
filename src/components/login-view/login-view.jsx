@@ -55,7 +55,7 @@ export function LoginView(props) {
         <Container fluid>
             <Navbar bg='dark' expand='lg'>
                 <Navbar.Brand href='#Home'>Movies</Navbar.Brand>
-                <Navbar.Toggle aira-controls='basic navbar'></Navbar.Toggle>
+                <Navbar.Toggle aria='basic navbar'></Navbar.Toggle>
                 <Navbar.Collapse id='basic navbar'>
                     <Nav className="me-auto">
                     </Nav>
@@ -72,7 +72,7 @@ export function LoginView(props) {
                         onChange={e => setUsername(e.target.value)} />
                     {usernameErr && <p>{usernameErr}</p>}
                 </Form.Group>
-                <Form.Gorup controlId='formPassword'>
+                <Form.Group controlId='formPassword'>
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         type='text'
@@ -80,7 +80,7 @@ export function LoginView(props) {
                         value={password}
                         onChange={e => setPassword(e.target.value)} />
                     {passwordErr && <p>{passwordErr}</p>}
-                </Form.Gorup>
+                </Form.Group>
 
                 <Button variant='primary' type='submit' onClick={handleSubmit}>Login</Button>
 

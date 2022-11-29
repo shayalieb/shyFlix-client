@@ -7,7 +7,7 @@ import './registration-view.scss';
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [email, setEamil] = useState('');
+    const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
 
     const [values, setValues] = useState({
@@ -20,14 +20,14 @@ export function RegistrationView(props) {
     const validate = () => {
         let isReq = true;
         if (!username) {
-            setValues({ ...values, usernameErr: 'Username is rquired' });
+            setValues({ ...values, usernameErr: 'Username is required' });
             isReq = false;
         } else if (username.length < 6) {
             setValues({ ...values, usernameErr: 'Username must be at least 6 characters long' });
             isReq = false;
         }
         if (!password) {
-            setValues({ ...values, passwordErr: 'Password is rquired' });
+            setValues({ ...values, passwordErr: 'Password is required' });
             isReq = false;
         } else if (password.length < 8) {
             setValues({ ...values, passwordErr: 'Password must be at lease 8 characters long' });
@@ -81,7 +81,7 @@ export function RegistrationView(props) {
                                             {...values.usernameErr && <p>{values.usernameErr}</p>} />
                                     </Form.Group>
 
-                                    <From.Gorup>
+                                    <From.Group>
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control
                                             type='text'
@@ -91,14 +91,14 @@ export function RegistrationView(props) {
                                             minLength={8}
                                             placeholder='Password  must be at least 8 characters long'
                                             {...values.passwordErr && <p>{values.passwordErr}</p>} />
-                                    </From.Gorup>
+                                    </From.Group>
 
                                     <Form.Group>
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control
                                             type='email'
                                             value={email}
-                                            onChange={(e) => setEamil(e.target.value)}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             required
                                             placeholder='example@example.com'
                                             {...values.emailErr && <p>{values.emailErr}</p>} />
@@ -109,7 +109,7 @@ export function RegistrationView(props) {
                                         <Form.Control
                                             type='date'
                                             value={birthday}
-                                            onChange={(e) => setEamil(e.target.value)}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             required
                                             placeholder='MM/DD/YYYY'
                                             {...values.birthdayErr && <p>{values.birthdayErr}</p>} />

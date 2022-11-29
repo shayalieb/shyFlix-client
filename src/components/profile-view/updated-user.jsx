@@ -20,7 +20,7 @@ export function UpdatedUser(props) {
         if (!username) {
             setValues({ ...values, usernameErr: 'Username is required' })
         } else if (username.length < 6) {
-            setValues({ ...values, usernameErr: 'Username must be a minimun of 6 characters long' });
+            setValues({ ...values, usernameErr: 'Username must be a minimum of 6 characters long' });
             isReq = false;
         }
         if (!password) {
