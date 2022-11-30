@@ -2906,6 +2906,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 <<<<<<< HEAD
+<<<<<<< HEAD
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 var _mainView = require("./components/main-view/main-view");
@@ -2933,6 +2934,16 @@ class MyShyFlixApplication extends (0, _reactDefault.default).Component {
             fileName: "src/index.jsx",
             lineNumber: 10,
 >>>>>>> parent of 721758b (Updated and functioning)
+=======
+var _mainView = require("./components/main-view/main-view");
+var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
+//Component will eventually bundle all
+class MyShyFlixApplication extends (0, _reactDefault.default).Component {
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainViewDefault.default), {}, void 0, false, {
+            fileName: "src/index.jsx",
+            lineNumber: 10,
+>>>>>>> parent of 721758b (Updated and functioning)
             columnNumber: 13
         }, this);
     }
@@ -2948,7 +2959,11 @@ const container = document.getElementsByClassName("app-container")[0];
   window.$RefreshSig$ = prevRefreshSig;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./components/main-view/main-view":"4gflv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./index.scss":"lJZlQ","react-bootstrap/Container":"hEdsw","react-dom":"j6uA9"}],"iTorj":[function(require,module,exports) {
+=======
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/main-view/main-view":"4gflv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/main-view/main-view":"4gflv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -39757,6 +39772,7 @@ parcelHelpers.export(exports, "classNamesShape", ()=>classNamesShape);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 <<<<<<< HEAD
+<<<<<<< HEAD
 var timeoutsShape = (0, _propTypesDefault.default).oneOfType([
     (0, _propTypesDefault.default).number,
     (0, _propTypesDefault.default).shape({
@@ -40076,6 +40092,8 @@ function mergeRefs(refA, refB) {
         if (a) a(value);
         if (b) b(value);
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 class MovieCard extends (0, _reactDefault.default).Component {
     render() {
         const { movie , onMovieClick  } = this.props;
@@ -50596,6 +50614,9 @@ printWarning = function(text) {
 module.exports = checkPropTypes;
 
 },{"./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf"}],"ggaUx":[function(require,module,exports) {
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -50609,6 +50630,7 @@ parcelHelpers.export(exports, "MovieView", ()=>MovieView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+<<<<<<< HEAD
 <<<<<<< HEAD
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
@@ -50809,6 +50831,8 @@ class MovieView extends (0, _reactDefault.default).Component {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 52,
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 var _indexScss = require("../../index.scss");
 class MovieView extends (0, _reactDefault.default).Component {
     render() {
@@ -50888,6 +50912,9 @@ class MovieView extends (0, _reactDefault.default).Component {
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 25,
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
                     columnNumber: 17
                 }, this)
@@ -50895,7 +50922,11 @@ class MovieView extends (0, _reactDefault.default).Component {
         }, void 0, true, {
             fileName: "src/components/movie-view/movie-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
             lineNumber: 10,
+=======
+            lineNumber: 13,
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
             lineNumber: 13,
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -50928,6 +50959,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2","react-router-dom":"9xmpe"}],"km3Ru":[function(require,module,exports) {
 "use strict";
@@ -51053,6 +51085,9 @@ function registerExportsForReactRefresh(module1) {
 =======
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}],"9YtA0":[function(require,module,exports) {
 >>>>>>> parent of 721758b (Updated and functioning)
+=======
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}],"9YtA0":[function(require,module,exports) {
+>>>>>>> parent of 721758b (Updated and functioning)
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -51070,6 +51105,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 <<<<<<< HEAD
+<<<<<<< HEAD
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
@@ -51077,6 +51113,8 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactBootstrap = require("react-bootstrap");
 var _registrationView = require("../registration-view/registration-view");
 var _loginViewScss = require("./login-view.scss");
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
 var _s = $RefreshSig$();
@@ -51107,6 +51145,7 @@ function LoginView(props) {
     };
     const handleSubmit = (e)=>{
         e.preventDefault();
+<<<<<<< HEAD
 <<<<<<< HEAD
         const isReq = validate();
         if (isReq) (0, _axiosDefault.default).post("https://shyflixapp.herokuapp.com/login", {
@@ -51253,14 +51292,33 @@ function LoginView(props) {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 17,
 >>>>>>> parent of 721758b (Updated and functioning)
+=======
+        console.log(username, password);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 17,
+>>>>>>> parent of 721758b (Updated and functioning)
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 65,
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 15,
                 columnNumber: 13
@@ -51305,6 +51363,9 @@ function LoginView(props) {
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 25,
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
                 columnNumber: 13
             }, this)
@@ -51312,7 +51373,11 @@ function LoginView(props) {
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
 <<<<<<< HEAD
+<<<<<<< HEAD
         lineNumber: 55,
+=======
+        lineNumber: 14,
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
         lineNumber: 14,
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -51321,6 +51386,7 @@ function LoginView(props) {
 }
 _s(LoginView, "OE8YjcJGIuyxg6F5muZvwXJgQUc=");
 _c = LoginView;
+<<<<<<< HEAD
 <<<<<<< HEAD
 LoginView.propTypes = {
     user: (0, _propTypesDefault.default).shape({
@@ -51333,6 +51399,8 @@ LoginView.propTypes = {
 };
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -51342,9 +51410,12 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshSig$ = prevRefreshSig;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","./login-view.scss":"e57ax","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2","react-bootstrap":"3AD9A","../registration-view/registration-view":"3U8r7"}],"e57ax":[function() {},{}],"3U8r7":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"frd13":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9573 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -51365,11 +51436,14 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 <<<<<<< HEAD
+<<<<<<< HEAD
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _registrationViewScss = require("./registration-view.scss");
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
 var _s = $RefreshSig$();
@@ -51442,6 +51516,7 @@ function RegistrationView(props) {
             window.open("/", "_self");
         });
     };
+<<<<<<< HEAD
 <<<<<<< HEAD
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -51622,6 +51697,8 @@ function RegistrationView(props) {
         fileName: "src/components/registration-view/registration-view.jsx",
         lineNumber: 66,
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
@@ -51724,12 +51801,16 @@ function RegistrationView(props) {
     }, void 0, true, {
         fileName: "src/components/registeration-view/registration-view.jsx",
         lineNumber: 17,
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
         columnNumber: 9
     }, this);
 }
 _s(RegistrationView, "N7PePQzeEco3NxnjxU3NOr7Lwh8=");
 _c = RegistrationView;
+<<<<<<< HEAD
 <<<<<<< HEAD
 RegistrationView.propTypes = {
     register: (0, _propTypesDefault.default).shape({
@@ -51741,6 +51822,8 @@ RegistrationView.propTypes = {
 };
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 var _c;
 $RefreshReg$(_c, "RegistrationView");
 
@@ -51749,6 +51832,7 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-bootstrap":"3AD9A","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"clIxH":[function() {},{}],"9tpci":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -52780,6 +52864,9 @@ $RefreshReg$(_c, "UpdatedUser");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","axios":"jo6P5","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequire5b2a")
+=======
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eBaMl":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequire5b2a")
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eBaMl":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequire5b2a")
 >>>>>>> parent of 721758b (Updated and functioning)

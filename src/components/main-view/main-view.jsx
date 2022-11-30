@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -15,6 +16,8 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { UpdatedUser } from '../profile-view/updated-user';
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 import React from "react";
 import axios from "axios";//For importing my data
 
@@ -85,6 +88,7 @@ class MainView extends React.Component {
     }
 
     render() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         const { movies, user } = this.props;
 
@@ -197,6 +201,15 @@ class MainView extends React.Component {
         if (movies.length === 0) return <div className="main-view" />;
 
         return (
+=======
+        const { movies, selectedMovie, user } = this.state;
+        //If there is no user, the login view is redered. If there is a user logged in the user details are passed
+        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        //Check before the movies have been loaded
+        if (movies.length === 0) return <div className="main-view" />;
+
+        return (
+>>>>>>> parent of 721758b (Updated and functioning)
             <div className="main-view">
                 {selectedMovie //Is selected movie state is not null, sellectedMovie movie will be returned
                     ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
@@ -205,12 +218,16 @@ class MainView extends React.Component {
                     ))
                 }
             </div>
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
         );
     }
 
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 MainView.propTypes = {
     movies: PropTypes.shape({
@@ -236,6 +253,9 @@ MainView.propTypes = {
 // };
 
 // export default MainView;
+=======
+export default MainView;
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 export default MainView;
 >>>>>>> parent of 721758b (Updated and functioning)
