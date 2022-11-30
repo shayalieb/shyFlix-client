@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import Container from 'react-bootstrap/Container';
 
 import MainView from './components/main-view/main-view';
 
 
 import './index.scss'
+=======
+import MainView from './components/main-view/main-view';
+>>>>>>> parent of 721758b (Updated and functioning)
 
 
 //Component will eventually bundle all
@@ -13,12 +17,17 @@ class MyShyFlixApplication extends React.Component {
 
     render() {
         return (
+<<<<<<< HEAD
             <Container>
                 <MainView />
 
             </Container>
 
         );
+=======
+            <MainView />
+        )
+>>>>>>> parent of 721758b (Updated and functioning)
     }
 }
 

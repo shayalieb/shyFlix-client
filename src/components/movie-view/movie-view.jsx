@@ -17,6 +17,7 @@ export class MovieView extends React.Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Container fluid className='movie-container'>
                 <Row>
                     <Col>
@@ -75,6 +76,8 @@ export class MovieView extends React.Component {
 >>>>>>> parent of 721758b (Updated and functioning)
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
             <div className="movie-view">
                 <div className="movie-poster">
                     <img src={movie.imagepath} />
@@ -91,6 +94,9 @@ export class MovieView extends React.Component {
             </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -122,6 +128,9 @@ MovieView.propTypes = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 721758b (Updated and functioning)
+=======
 >>>>>>> parent of 721758b (Updated and functioning)
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
