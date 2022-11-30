@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form'
@@ -8,6 +9,9 @@ import Button from 'react-bootstrap/Button';
 import { Container, Nav, Navbar, Form } from "react-bootstrap";
 import { RegistrationView } from "../registration-view/registration-view";
 import './login-view.scss';
+=======
+import PropTypes from 'prop-types'
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 import PropTypes from 'prop-types'
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -42,6 +46,7 @@ export function LoginView(props) {
     }
 
     const handleSubmit = (e) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         e.preventDefault();
@@ -108,6 +113,29 @@ LoginView.propTypes = {
     }),
     onLoggedIn: PropTypes.func.isRequired,
 };
+=======
+        e.preventDefault()
+        console.log(username, password);
+    };
+
+    return (
+        <form>
+            <label>
+                Username:
+                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+            </label>
+            <label>
+                Password:
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+            </label>
+            <button type="submit" onClick={handleSubmit}>Login</button>
+            <h3>Click here to unregister</h3>
+            <button type="unregister">Unregister</button>
+        </form>
+    )
+}
+
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
         e.preventDefault()
         console.log(username, password);

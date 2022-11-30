@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Container from 'react-bootstrap/Container';
 
 import MainView from './components/main-view/main-view';
 
 
 import './index.scss'
+=======
+import MainView from './components/main-view/main-view';
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 import MainView from './components/main-view/main-view';
 >>>>>>> parent of 721758b (Updated and functioning)
@@ -23,12 +27,17 @@ class MyShyFlixApplication extends React.Component {
         return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Container>
                 <MainView />
 
             </Container>
 
         );
+=======
+            <MainView />
+        )
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
             <MainView />
         )

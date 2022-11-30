@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 
@@ -39,6 +40,8 @@ MovieCard.propTypes = {
   }).isRequired,
 }
 =======
+=======
+>>>>>>> parent of 721758b (Updated and functioning)
 =======
 >>>>>>> parent of 721758b (Updated and functioning)
 
