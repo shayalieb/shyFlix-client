@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -16,24 +13,6 @@ import { GenreView } from '../genre-view/genre-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { UpdatedUser } from '../profile-view/updated-user';
-=======
-=======
->>>>>>> parent of 721758b (Updated and functioning)
-=======
->>>>>>> parent of 721758b (Updated and functioning)
-import React from "react";
-import axios from "axios";//For importing my data
-
-//need to import registration-view
-import { LoginView } from "../login-view/login-view";
-import { RegistrationView } from "../registeration-view/registration-view";
-import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
-// import { MainView } from './components/main-view/main-vie
-import './main-view.scss'
-
-export class MainView extends React.Component {
->>>>>>> parent of 721758b (Updated and functioning)
 
 class MainView extends React.Component {
     constructor() {
@@ -91,9 +70,6 @@ class MainView extends React.Component {
     }
 
     render() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         const { movies, user } = this.props;
 
         return (
@@ -197,55 +173,10 @@ class MainView extends React.Component {
                         }} />
                 </Row>
             </Router>
-=======
-        const { movies, selectedMovie, user } = this.state;
-        //If there is no user, the login view is redered. If there is a user logged in the user details are passed
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-        //Check before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />;
-
-        return (
-=======
-        const { movies, selectedMovie, user } = this.state;
-        //If there is no user, the login view is redered. If there is a user logged in the user details are passed
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-        //Check before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />;
-
-        return (
->>>>>>> parent of 721758b (Updated and functioning)
-=======
-        const { movies, selectedMovie, user } = this.state;
-        //If there is no user, the login view is redered. If there is a user logged in the user details are passed
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-        //Check before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />;
-
-        return (
->>>>>>> parent of 721758b (Updated and functioning)
-            <div className="main-view">
-                {selectedMovie //Is selected movie state is not null, sellectedMovie movie will be returned
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
-                    ))
-                }
-            </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 721758b (Updated and functioning)
-=======
->>>>>>> parent of 721758b (Updated and functioning)
-=======
->>>>>>> parent of 721758b (Updated and functioning)
         );
     }
-
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 MainView.propTypes = {
     movies: PropTypes.shape({
         Title: PropTypes.string.isRequired,
@@ -269,13 +200,4 @@ MainView.propTypes = {
 //     };
 // };
 
-// export default MainView;
-=======
 export default MainView;
->>>>>>> parent of 721758b (Updated and functioning)
-=======
-export default MainView;
->>>>>>> parent of 721758b (Updated and functioning)
-=======
-export default MainView;
->>>>>>> parent of 721758b (Updated and functioning)
