@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 
@@ -36,3 +37,27 @@ MovieCard.propTypes = {
     })
   }).isRequired,
 }
+=======
+
+export class MovieCard extends React.Component {
+
+    render() {
+        const { movie, onMovieClick } = this.props;
+        return (
+            <div onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</div>
+        )
+    }
+}
+
+MovieCard.PropTypes = {
+    movie: PropTypes.shape({
+        Title: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+        imagepath: PropTypes.string.isRequired,
+        Genre: PropTypes.shape({
+
+        })
+    }).isRequired,
+    onMovieClick: PropTypes.func.isRequired
+};
+>>>>>>> parent of 721758b (Updated and functioning)

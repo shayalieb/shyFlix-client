@@ -1,14 +1,17 @@
 .shyFilxApp {
   color: #04291e;
   background-color: #a0dec3;
-  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
+<<<<<<< HEAD
 .app-container {
   text-align: center;
   display: flexbox;
   background-color: #a0dec3;
 }
+=======
+
+>>>>>>> parent of 721758b (Updated and functioning)
 
 .LoginView-title {
   color: #065e44;

@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import React from 'react';
 import propTypes from 'prop-types';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+=======
+import React from "react";
+import '../../index.scss';
+>>>>>>> parent of 721758b (Updated and functioning)
 
 export class MovieView extends React.Component {
     render() {
+
         const { movie, onBackClick } = this.props;
+
         return (
+<<<<<<< HEAD
             <Container fluid className='movie-container'>
                 <Row>
                     <Col>
@@ -60,10 +68,27 @@ export class MovieView extends React.Component {
                 </Row>
 
             </Container>
+=======
+            <div className="movie-view">
+                <div className="movie-poster">
+                    <img src={movie.imagepath} />
+                </div>
+                <div className="movie=title">
+                    <span className="lablel">Title: </span>
+                    <span className="value">{movie.Title}</span>
+                </div>
+                <div className="movie-description">
+                    <span className="label">Description: </span>
+                    <span className="value">{movie.Description}</span>
+                </div>
+                <button onClick={() => { onBackClick(null); }}>Back</button>
+            </div>
+>>>>>>> parent of 721758b (Updated and functioning)
         );
     }
 }
 
+<<<<<<< HEAD
 MovieView.propTypes = {
     movie: propTypes.shape({
         Title: propTypes.string.isRequired,
@@ -80,3 +105,7 @@ MovieView.propTypes = {
     }).isRequired,
     onBackClick: propTypes.func.isRequired,
 };
+=======
+
+
+>>>>>>> parent of 721758b (Updated and functioning)
